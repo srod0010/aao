@@ -65,8 +65,11 @@ class Stack {
             this.top = newTop;
             this.length--;
             return oldTop.value;
-
         }
+    }
+
+    size(){
+        return this.length;
     }
 }
 
