@@ -22,7 +22,7 @@
 
 class Node {
     constructor(value) {
-        this.value = val;
+        this.value = value;
         this.next = null;
     }
 }
@@ -32,6 +32,20 @@ class Queue {
         this.front = front;
         this.back = back;
         this.length = length;
+    }
+
+    enqueue(val){
+        const node = new Node(val);
+        if (!this.front) {
+            this.front = node;
+            this.back = node;
+        } else {
+            let temp = this.back;
+            this.back = node;
+            temp.next = this.back;
+        }
+
+        return ++this.length;
     }
 }
 
