@@ -57,7 +57,9 @@ class Queue {
         return old.value;
     }
 
-    
+    size() {
+        return this.length;
+    }
 }
 
 exports.Node = Node;
