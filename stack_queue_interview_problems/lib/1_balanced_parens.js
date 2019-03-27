@@ -76,6 +76,31 @@
 // Let's code!
 // -----------
 function balancedParens(str) {
+    const keys = {
+        '(': ')',
+        '{': '}',
+        '[': ']'
+    }
+    const closing = {
+        ']': ']',
+        '}': '}',
+        ')': ')'
+    }
+    const currentOpens = [];
+    const closed = [];
+    for (char of str) {
+        if (keys[char]) {
+            currentOpens.push(char);
+        } else if (closing[char]) {
+            if (currentOpens.length === 0) return false;
+            let lastOpen = currentOpens.pop();
+            if (keys[lastOpen] !== char) return false;
+            continue;
+        }
+
+    }
+
+    return currentOpens.length === 0;
 
 }
 
