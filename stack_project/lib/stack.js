@@ -47,6 +47,27 @@ class Stack {
         }
         return ++this.length;
     }
+
+    pop() {
+        if (!this.top) return null;
+        if (!this.top.next) {
+            // if there is only one node
+            let node = this.top;
+            this.top = null;
+            this.bottom = null;
+            this.length--;
+            return node.value;
+        } else {
+            //multiple nodes
+            let oldTop = this.top;
+            let newTop = this.top.next;
+            this.top.next = null;
+            this.top = newTop;
+            this.length--;
+            return oldTop.value;
+
+        }
+    }
 }
 
 exports.Node = Node;
